@@ -4,11 +4,12 @@ import android.content.Intent;
 import android.graphics.Point;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class DifficultyMenuActivity extends AppCompatActivity {
     private  int selectedDifficulty;

@@ -1,5 +1,6 @@
 package android.hfad.com.sudoku;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
@@ -79,6 +80,7 @@ public class MainMenuActivity extends Activity {
         startActivity(intent);
     }
 
+    @SuppressLint("Range")
     public void onClickResume(View view) {
         Intent intent = new Intent(this, GameActivity.class);
         String status, difficulty, elapsedSeconds, solutionString, gridString;

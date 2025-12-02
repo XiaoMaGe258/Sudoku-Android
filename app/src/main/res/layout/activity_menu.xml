@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -20,7 +20,7 @@
             android:textColor="#F0F0F0"
             android:layout_marginBottom="40px"
             android:textSize="20dp"
-            android:text="EASY"
+            android:text="简单"
             android:onClick="onClickButton"/>
 
         <Button
@@ -32,7 +32,7 @@
             android:textColor="#F0F0F0"
             android:layout_marginBottom="40px"
             android:textSize="20dp"
-            android:text="NORMAL"
+            android:text="中等"
             android:onClick="onClickButton"/>
 
         <Button
@@ -44,7 +44,7 @@
             android:textColor="#F0F0F0"
             android:layout_marginBottom="40px"
             android:textSize="20dp"
-            android:text="HARD"
+            android:text="困难"
             android:onClick="onClickButton"/>
 
         <Button
@@ -55,9 +55,9 @@
             android:background="@drawable/rounded_corner"
             android:textColor="#F0F0F0F0"
             android:textSize="20dp"
-            android:text="EXTREME"
+            android:text="极端"
             android:onClick="onClickButton"/>
     </RelativeLayout>
 
 
-</android.support.constraint.ConstraintLayout>
+</RelativeLayout>

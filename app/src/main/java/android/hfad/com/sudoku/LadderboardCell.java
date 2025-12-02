@@ -2,11 +2,11 @@ package android.hfad.com.sudoku;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.Typeface;
-import android.support.v7.widget.AppCompatTextView;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.appcompat.widget.AppCompatTextView;
 
 public class LadderboardCell extends AppCompatTextView {
 

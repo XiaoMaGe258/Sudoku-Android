@@ -7,8 +7,6 @@ import android.content.pm.ActivityInfo;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Spannable;
 import android.text.Spanned;
 import android.text.style.RelativeSizeSpan;
@@ -25,9 +23,12 @@ import java.util.Stack;
 
 import static android.widget.Toast.LENGTH_LONG;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
 public class GameActivity extends AppCompatActivity {
     static public final int[] NUMBER_OF_EMPTY_CELLS = {0, 30, 35, 45, 50};
-    static public final String[] DIFFICULT_NAME = {"NONE", "Easy", "Normal", "Hard", "Extreme"};
+    static public final String[] DIFFICULT_NAME = {"无", "简单", "中等", "困难", "极端"};
 
     static private SudokuGrid grid;
     static private Numpad numpad;
@@ -111,7 +112,7 @@ public class GameActivity extends AppCompatActivity {
         }
 
         wannaBack = true;
-        Toast.makeText(this, "Bấm 'BACK' lần nữa để quay lại menu chính", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "再次退出返回主菜单", Toast.LENGTH_SHORT).show();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -156,16 +157,16 @@ public class GameActivity extends AppCompatActivity {
             autoFill();
         } else {
             AlertDialog.Builder dialog = new AlertDialog.Builder(this, R.style.Theme_AppCompat_Light_Dialog);
-            dialog.setMessage("Nếu sử dụng tính năng này, kết quả của bạn sẽ không được công nhận trên bảng xếp hạng. \nBạn có chắc chắn muốn sử dụng?")
-                    .setTitle("Chú ý\n")
-                    .setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
+            dialog.setMessage("如果你使用这个功能，你的结果将不会被认可。\n 你确定要用吗?")
+                    .setTitle("注意\n")
+                    .setPositiveButton("同意", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             status = -1;
                             autoFill();
                         }
                     })
-                    .setNegativeButton("Từ chối", new DialogInterface.OnClickListener() {
+                    .setNegativeButton("拒绝", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             dialogInterface.cancel();
@@ -179,9 +180,9 @@ public class GameActivity extends AppCompatActivity {
         AlertDialog.Builder dialog = new AlertDialog.Builder(this, R.style.MyTutorialTheme);
         Spannable message = SpannableWithImage.getTextWithImages(this, getString(R.string.tutorial), 50);
 
-        int position = getString(R.string.tutorial).indexOf("Chú ý:");
+        int position = getString(R.string.tutorial).indexOf("注意:");
         message.setSpan(new RelativeSizeSpan(1.2f), position, position + 6, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        dialog.setMessage(message).setTitle("Hướng dẫn").show();
+        dialog.setMessage(message).setTitle("指引").show();
     }
 
     private void autoFill() {
@@ -235,23 +236,23 @@ public class GameActivity extends AppCompatActivity {
 
     public void onClickSubmit(View view) {
         if (!grid.isLegalGrid()) {
-            Toast.makeText(this, "Hãy hoàn thiện bảng", LENGTH_LONG).show();
+            Toast.makeText(this, "请把表整理一下", LENGTH_LONG).show();
             return;
         }
         if (solver.checkValidGrid(grid.getNumbers())) {
-            Toast.makeText(this, "Chúc mừng, đáp án chính xác", LENGTH_LONG).show();
+            Toast.makeText(this, "恭喜你，正确答案。", LENGTH_LONG).show();
             status = 0;
             if (status >= 0) {
                 AlertDialog.Builder dialog = new AlertDialog.Builder(this, R.style.Theme_AppCompat_Light_Dialog);
-                dialog.setMessage("Bạn có muốn lưu kết quả trên bảng xếp hạng?")
-                        .setTitle("Thông báo\n")
-                        .setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
+                dialog.setMessage("恭喜你，正确答案。")
+                        .setTitle("通知\n")
+                        .setPositiveButton("好的", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 saveAchievement();
                             }
                         })
-                        .setNegativeButton("Từ chối", new DialogInterface.OnClickListener() {
+                        .setNegativeButton("关闭", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 dialogInterface.cancel();
@@ -264,7 +265,7 @@ public class GameActivity extends AppCompatActivity {
             // set status to GAME_DONE
             status = -3;
         } else {
-            Toast.makeText(this, "Đáp án sai", LENGTH_LONG).show();
+            Toast.makeText(this, "错误答案", LENGTH_LONG).show();
         }
     }
 
@@ -278,16 +279,16 @@ public class GameActivity extends AppCompatActivity {
     public void onClickSolve() {
         if(status >= 0) {
             AlertDialog.Builder dialog = new AlertDialog.Builder(this, R.style.Theme_AppCompat_Light_Dialog);
-            dialog.setMessage("Nếu sử dụng tính năng này, kết quả của bạn sẽ không được công nhận trên bảng xếp hạng. \nBạn có chắc chắn muốn sử dụng?")
-                    .setTitle("Chú ý\n")
-                    .setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
+            dialog.setMessage("如果你使用这个功能，你的结果将不会被认可。\n你确定要用吗?")
+                    .setTitle("注意\n")
+                    .setPositiveButton("同意", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             status = -2;
                             onClickSolve();
                         }
                     })
-                    .setNegativeButton("Từ chối", new DialogInterface.OnClickListener() {
+                    .setNegativeButton("拒绝", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             dialogInterface.cancel();

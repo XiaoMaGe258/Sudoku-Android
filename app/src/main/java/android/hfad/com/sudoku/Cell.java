@@ -7,6 +7,8 @@ import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 
+import androidx.appcompat.widget.AppCompatTextView;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,7 +16,7 @@ import java.util.Map;
  * Created by tuana on 14-03-2018.
  */
 @SuppressLint("ResourceAsColor")
-public class Cell extends android.support.v7.widget.AppCompatTextView {
+public class Cell extends AppCompatTextView {
     static public int CELL_DEFAULT_TEXT_SIZE = 18;
     static public int CELL_HEIGHT;
     static private final int[] indexOfNumber = {0, 0, 3, 6, 8, 11, 14, 16, 19, 22}; // in format cell string

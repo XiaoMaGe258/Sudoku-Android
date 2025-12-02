@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">Sudoku</string>
     <string name="tutorial">
-        Mỗi ô trong hàng, cột, hộp cần điền duy nhất một số từ 1 tới 9 và không ô nào được trùng nhau.\n\n
-        Chú ý:\n
-        - Click vào biểu tượng [img src=ic_reset/] để xóa toàn bộ số bạn đã điền.\n
-        - Click vào biểu tượng [img src=ic_hint/] để xem gợi ý.\n
-        - Click vào biểu tượng [img src=ic_solve/] để xem lời giải mẫu.\n
+        行、列和框中的每个单元格都要填写从1到9的数字，没有一个单元格是匹配的。\n\n
+        注意:\n
+        -点击图标 [img src=ic_reset/] 删除您输入的所有数字。\n
+        -点击图标 [img src=ic_hint/] 查看提示。\n
+        -点击图标 [img src=ic_solve/] 查看最终解。\n
     </string>
     <string name="app_font"> FallingSkyBd.otf </string>
 </resources>

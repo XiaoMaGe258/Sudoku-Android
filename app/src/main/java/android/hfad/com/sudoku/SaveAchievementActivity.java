@@ -5,14 +5,15 @@ import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -30,7 +31,7 @@ public class SaveAchievementActivity extends AppCompatActivity {
         setContentView(R.layout.activity_saveachivement);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getSupportActionBar().setTitle("Lưu kết quả");
+        getSupportActionBar().setTitle("保存结果");
 
         Intent intent = getIntent();
 
@@ -38,11 +39,11 @@ public class SaveAchievementActivity extends AppCompatActivity {
         difficulty = intent.getIntExtra("difficulty", 0);
 
         txtDifficulty = findViewById(R.id.txtDifficulty);
-        txtDifficulty.setText(String.format("%-15s %s", "Độ khó:", GameActivity.DIFFICULT_NAME[difficulty]));
+        txtDifficulty.setText(String.format("%-15s %s", "难点:", GameActivity.DIFFICULT_NAME[difficulty]));
         txtDifficulty.setTypeface(AppConstant.APP_FONT);
 
         txtTimeElapsed = findViewById(R.id.txtTimeElapsed);
-        txtTimeElapsed.setText(String.format("%-15s %s", "Thời gian:", Timer.getTimeFormat(elapsedSeconds)));
+        txtTimeElapsed.setText(String.format("%-15s %s", "时间:", Timer.getTimeFormat(elapsedSeconds)));
         txtTimeElapsed.setTypeface(AppConstant.APP_FONT);
 
         edtNickname = findViewById(R.id.edtNickname);
@@ -52,11 +53,11 @@ public class SaveAchievementActivity extends AppCompatActivity {
         edtNote.setTypeface(AppConstant.APP_FONT);
 
         btnOK = findViewById(R.id.btnOK);
-        btnOK.setText("Đồng ý");
+        btnOK.setText("同意");
         btnOK.setTypeface(AppConstant.APP_FONT);
 
         btnCancel = findViewById(R.id.btnCancel);
-        btnCancel.setText("Hủy bỏ");
+        btnCancel.setText("取消");
         btnCancel.setTypeface(AppConstant.APP_FONT);
     }
 
@@ -82,7 +83,7 @@ public class SaveAchievementActivity extends AppCompatActivity {
 
                 database.insert("achievement", null, values);
 
-                Toast.makeText(this, "Đã xong!", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "已经完成了!", Toast.LENGTH_LONG).show();
             } catch (Exception e) {
                 Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
             }
@@ -91,7 +92,7 @@ public class SaveAchievementActivity extends AppCompatActivity {
             }
         }
         else {
-            Toast.makeText(this, "Nickname không được bỏ trống", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Nickname 不要放弃", Toast.LENGTH_LONG).show();
         }
     }
 }

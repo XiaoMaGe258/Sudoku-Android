@@ -1,5 +1,6 @@
 package android.hfad.com.sudoku;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -99,6 +100,7 @@ public class LadderboardActivity extends Activity {
         });
     }
 
+    @SuppressLint("Range")
     void drawLadderboard() {
         // clear old data
         table.removeAllViews();
