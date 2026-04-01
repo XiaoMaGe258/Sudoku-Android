@@ -1,66 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="android.hfad.com.sudoku.MainMenuActivity">
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="32dp"
+    android:background="@color/background">
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/GAME_BACKGROUND_COLOR"
-        tools:ignore="MissingConstraints"
-        >
+    <!-- 标题 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="数独游戏"
+        android:textSize="42sp"
+        android:textStyle="bold"
+        android:textColor="@color/primary"
+        android:layout_marginBottom="8dp" />
 
-        <ImageView
-            android:id="@+id/sudoku_icon"
-            android:layout_width="180dp"
-            android:layout_height="175dp"
-            android:layout_above="@id/btnPlay"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="20dp"
-            android:background="@android:drawable/dialog_holo_dark_frame"
-            android:src="@drawable/ic_sudoku" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ShuDu"
+        android:textSize="18sp"
+        android:textColor="#9E9E9E"
+        android:layout_marginBottom="56dp" />
 
-        <Button
-            android:id="@+id/btnPlay"
-            android:layout_width="170dp"
+    <!-- 难度选择标签 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/select_difficulty"
+        android:textSize="18sp"
+        android:textColor="#424242"
+        android:layout_marginBottom="16dp" />
+
+    <!-- 难度单选框 -->
+    <RadioGroup
+        android:id="@+id/difficulty_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="18dp">
+
+        <RadioButton
+            android:id="@+id/rb_easy"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_margin="5dp"
-            android:onClick="onClickPlay"
-            android:text="Play"
-            android:background="@drawable/rounded_corner"
-            android:textColor="#F0F0F0"
-            android:textAllCaps="false"
-            android:textSize="30dp" />
-        <Button
-            android:id="@+id/btnResume"
-            android:layout_width="170dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/btnPlay"
-            android:layout_margin="5dp"
-            android:background="@drawable/rounded_corner"
-            android:textColor="#F0F0F0"
-            android:onClick="onClickResume"
-            android:text="Resume"
-            android:visibility="invisible"
-            android:textAllCaps="false"
-            android:textSize="25dp"
-            />
-        <Button
-            android:id="@+id/btnLadderBoard"
-            android:layout_width="170dp"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/btnResume"
-            android:layout_margin="5dp"
-            android:onClick="onClickLadderboard"
-            android:text="Ladderboard"
-            android:background="@drawable/rounded_corner"
-            android:textColor="#F0F0F0"
-            android:textAllCaps="false"
-            android:textSize="25dp" />
-    </RelativeLayout>
-</RelativeLayout>
+            android:text="@string/easy"
+            android:textSize="17sp"
+            android:checked="true"
+            android:paddingStart="4dp"
+            android:layout_marginEnd="20dp" />
 
+        <RadioButton
+            android:id="@+id/rb_medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/medium"
+            android:textSize="17sp"
+            android:paddingStart="4dp"
+            android:layout_marginEnd="20dp" />
+
+        <RadioButton
+            android:id="@+id/rb_hard"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hard"
+            android:textSize="17sp"
+            android:paddingStart="4dp" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/tv_difficulty_desc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textSize="16sp"
+        android:textColor="#999999"
+        android:layout_marginBottom="36dp" />
+
+    <!-- 开始游戏按钮 -->
+    <Button
+        android:id="@+id/btn_start"
+        android:layout_width="220dp"
+        android:layout_height="56dp"
+        android:text="@string/start_game"
+        android:textSize="20sp"
+        android:backgroundTint="@color/primary"
+        android:textColor="@color/white"
+        android:elevation="4dp" />
+
+</LinearLayout>

@@ -1,11 +1,18 @@
 <resources>
-    <string name="app_name">Sudoku</string>
-    <string name="tutorial">
-        行、列和框中的每个单元格都要填写从1到9的数字，没有一个单元格是匹配的。\n\n
-        注意:\n
-        -点击图标 [img src=ic_reset/] 删除您输入的所有数字。\n
-        -点击图标 [img src=ic_hint/] 查看提示。\n
-        -点击图标 [img src=ic_solve/] 查看最终解。\n
-    </string>
-    <string name="app_font"> FallingSkyBd.otf </string>
+    <string name="app_name">数独游戏</string>
+    <string name="select_difficulty">选择难度</string>
+    <string name="easy">简单</string>
+    <string name="medium">中等</string>
+    <string name="hard">困难</string>
+    <string name="start_game">开始游戏</string>
+    <string name="new_game">新游戏</string>
+    <string name="note_on">备注: 开</string>
+    <string name="note_off">备注: 关</string>
+    <string name="erase">清除</string>
+    <string name="congratulations">恭喜！</string>
+    <string name="new_game_confirm">确定要开始新游戏吗？当前进度将丢失。</string>
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+    <string name="play_again">再来一局</string>
+    <string name="back_home">返回主页</string>
 </resources>
